@@ -106,3 +106,22 @@ expected_wins <- inner_join(
 expected_wins <- expected_wins %>% mutate(win_diff = total_wins - expected_wins)
 
 writexl::write_xlsx(expected_wins, "expected_wins.xlsx")
+
+iowa <- pbp %>% filter((pos_team == "Iowa State" & def_pos_team == "UCF") | (def_pos_team == "Iowa State" & pos_team == "UCF"))
+
+# Visualization -----------------------------------------------------------
+
+library(ggplot2)
+
+ggplot(expected_wins, aes(y = win_diff)) +
+  geom_boxplot(fill = "#69b3a2", color = "#1f3552", outlier.color = "red") +
+  labs(
+    title = "Distribution of Win Difference",
+    y = "Win Difference",
+    x = ""
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(axis.title.x = element_blank(),
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+

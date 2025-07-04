@@ -9,17 +9,25 @@ readRenviron("CFB Clutchness Factor/.Renviron")
 Sys.setenv(CFBD_API_KEY = Sys.getenv("API_KEY"))
 
 
-# Load Team 2024-2025 Records ---------------------------------------------
+# Load Team 2024-2025 ---------------------------------------------
 
-fbs_teams <- cfbfastR::cfbd_team_info(only_fbs = TRUE) %>% select(school)
-team_matrix <- expand.grid(team = fbs_teams$school, week = 1:14)
+p4_teams <- cfbfastR::cfbd_team_info(only_fbs = TRUE) %>%
+  filter(
+    conference %in% c("SEC", "Big Ten", "Big 12", "ACC") |
+    school == "Notre Dame"
+  ) %>% 
+  select(school)
+  
+team_matrix <- expand.grid(team = p4_teams$school, week = 1:15)
+
+regular_season_games <- cfbfastR::load_cfb_schedules() %>% filter(week < 15)
 
 # Expected Win Probability at 2:00 4th ------------------------------------
 
 pbp <- cfbfastR::load_cfb_pbp() %>% 
   filter(
-    home %in% fbs_teams$school | away %in% fbs_teams$school,
-    week < 15,
+    game_id %in% regular_season_games$game_id,
+    home %in% p4_teams$school | away %in% p4_teams$school,
     period == 4
   ) %>% 
   mutate(
@@ -65,14 +73,22 @@ team_matrix <- rbind(home_teams, away_teams)
 
 records <- cfbfastR::cfbd_game_records(2024) %>% 
   filter(classification == "fbs") %>% 
-  select(team, total_wins)
+  select(team, regularSeason.wins) %>% 
+  rename(total_wins = regularSeason.wins)
 
 
-# Debug Bowl Games Mistakenly Added ---------------------------------------
+# Fix Conference Title Wins -----------------------------------------------
 
-game_count <- team_matrix %>% 
-  group_by(team) %>% 
-  summarise(count = n())
+conference_champions <- c(
+  "Clemson",
+  "Oregon",
+  "Arizona State",
+  "Georgia"
+)
+
+records <- records %>% 
+  mutate(total_wins = ifelse(
+    team %in% conference_champions, total_wins - 1, total_wins))
 
 
 # Calculate Expected Wins -------------------------------------------------

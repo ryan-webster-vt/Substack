@@ -1,0 +1,445 @@
+﻿Column1,Team
+1,"Connecticut
+   1 seed, CHAMPS"
+2,"Houston
+   1 seed, Sweet Sixteen"
+3,"Purdue
+   1 seed, Finals"
+4,"Auburn
+   4 seed, R64"
+5,"Iowa St.
+   2 seed, Sweet Sixteen"
+6,"Arizona
+   2 seed, Sweet Sixteen"
+7,"Tennessee
+   2 seed, Elite Eight"
+8,"Duke
+   4 seed, Elite Eight"
+9,"North Carolina
+   1 seed, Sweet Sixteen"
+10,"Creighton
+   3 seed, Sweet Sixteen"
+11,"Marquette
+   2 seed, Sweet Sixteen"
+12,"Gonzaga
+   5 seed, Sweet Sixteen"
+13,"Illinois
+   3 seed, Elite Eight"
+14,"Alabama
+   4 seed, Final Four"
+15,"Saint Mary's
+   5 seed, R64"
+16,St. John's
+17,"Baylor
+   3 seed, R32"
+18,"Michigan St.
+   9 seed, R32"
+19,"Texas
+   7 seed, R32"
+20,"Clemson
+   6 seed, Elite Eight"
+21,"Kansas
+   4 seed, R32"
+22,"Florida
+   7 seed, R64"
+23,"Colorado
+   10 seed, R32"
+24,"BYU
+   6 seed, R64"
+25,"Wisconsin
+   5 seed, R64"
+Rk,Team
+26,"Nebraska
+   8 seed, R64"
+27,"Kentucky
+   3 seed, R64"
+28,"San Diego St.
+   5 seed, Sweet Sixteen"
+29,"New Mexico
+   11 seed, R64"
+30,Pittsburgh
+31,Villanova
+32,"Texas Tech
+   6 seed, R64"
+33,"Texas A&M
+   9 seed, R32"
+34,"Mississippi St.
+   8 seed, R64"
+35,Wake Forest
+36,"Nevada
+   10 seed, R64"
+37,"Northwestern
+   9 seed, R32"
+38,Seton Hall
+39,"Washington St.
+   7 seed, R32"
+40,Utah
+41,Ohio St.
+42,Indiana St.
+43,"Colorado St.
+   10 seed, R64"
+44,"Boise St.
+   10 seed, R68"
+45,Cincinnati
+46,"TCU
+   9 seed, R64"
+47,"Dayton
+   7 seed, R32"
+48,"North Carolina St.
+   11 seed, Final Four"
+49,Oklahoma
+50,"South Carolina
+   6 seed, R64"
+Rk,Team
+51,"Drake
+   10 seed, R64"
+52,"Oregon
+   11 seed, R32"
+53,Virginia Tech
+54,Iowa
+55,"Florida Atlantic
+   8 seed, R64"
+56,Providence
+57,Butler
+58,"Utah St.
+   8 seed, R32"
+59,Washington
+60,Bradley
+61,Xavier
+62,"Virginia
+   10 seed, R68"
+63,"Grand Canyon
+   12 seed, R32"
+64,North Texas
+65,San Francisco
+66,UCF
+67,SMU
+68,Maryland
+69,Kansas St.
+70,USC
+71,Syracuse
+72,UNLV
+73,Georgia
+74,"James Madison
+   12 seed, R32"
+75,Penn St.
+Rk,Team
+76,Boston College
+77,Minnesota
+78,"Duquesne
+   11 seed, R32"
+79,Mississippi
+80,Richmond
+81,Florida St.
+82,VCU
+83,Indiana
+84,South Florida
+85,Miami FL
+86,LSU
+87,"McNeese St.
+   12 seed, R64"
+88,UCLA
+89,"Samford
+   13 seed, R64"
+90,Memphis
+91,Loyola Chicago
+92,UC Irvine
+93,"Yale
+   13 seed, R32"
+94,Louisiana Tech
+95,Saint Joseph's
+96,Massachusetts
+97,Princeton
+98,George Mason
+99,"College of Charleston
+   13 seed, R64"
+100,Appalachian St.
+Rk,Team
+101,Belmont
+102,Stanford
+103,Arkansas
+104,St. Bonaventure
+105,Rutgers
+106,Northern Iowa
+107,Charlotte
+108,"UAB
+   12 seed, R64"
+109,Hofstra
+110,Oklahoma St.
+111,Cornell
+112,Western Carolina
+113,"Vermont
+   13 seed, R64"
+114,UT Arlington
+115,Seattle
+116,Southern Illinois
+117,Santa Clara
+118,Michigan
+119,California
+120,Davidson
+121,Georgia Tech
+122,Troy
+123,High Point
+124,Notre Dame
+125,"Oakland
+   14 seed, R32"
+Rk,Team
+126,UNC Wilmington
+127,Arizona St.
+128,Sam Houston St.
+129,Drexel
+130,"Western Kentucky
+   15 seed, R64"
+131,"Morehead St.
+   14 seed, R64"
+132,Missouri
+133,West Virginia
+134,Wichita St.
+135,Arkansas St.
+136,Tarleton St.
+137,"Akron
+   14 seed, R64"
+138,"South Dakota St.
+   15 seed, R64"
+139,UC San Diego
+140,Youngstown St.
+141,UNC Greensboro
+142,Missouri St.
+143,Ohio
+144,St. Thomas
+145,Toledo
+146,Wright St.
+147,Towson
+148,Liberty
+149,Louisiana Lafayette
+150,Tulane
+Rk,Team
+151,Oregon St.
+152,Furman
+153,Wyoming
+154,Chattanooga
+155,Murray St.
+156,Delaware
+157,UTEP
+158,Stony Brook
+159,UC Davis
+160,Weber St.
+161,Montana
+162,"Colgate
+   14 seed, R64"
+163,Winthrop
+164,Quinnipiac
+165,East Carolina
+166,Fort Wayne
+167,Eastern Washington
+168,UMass Lowell
+169,Kent St.
+170,Bryant
+171,UNC Asheville
+172,Utah Valley
+173,Georgetown
+174,La Salle
+175,Hawaii
+Rk,Team
+176,Saint Louis
+177,Little Rock
+178,Illinois Chicago
+179,Loyola Marymount
+180,Brown
+181,"Longwood
+   16 seed, R64"
+182,East Tennessee St.
+183,Fordham
+184,Temple
+185,Stephen F. Austin
+186,Pepperdine
+187,Texas A&M Corpus Chris
+188,Vanderbilt
+189,Rice
+190,Louisville
+191,"Long Beach St.
+   15 seed, R64"
+192,Fairfield
+193,Illinois St.
+194,UMKC
+195,Northern Kentucky
+196,Gardner Webb
+197,Texas St.
+198,Monmouth
+199,Penn
+200,Rhode Island
+Rk,Team
+201,Tulsa
+202,George Washington
+203,Eastern Kentucky
+204,Cleveland St.
+205,Columbia
+206,"Montana St.
+   16 seed, R68"
+207,Radford
+208,Abilene Christian
+209,Mercer
+210,Evansville
+211,Jacksonville St.
+212,Northeastern
+213,Northern Colorado
+214,Harvard
+215,Lipscomb
+216,Marist
+217,South Alabama
+218,"Saint Peter's
+   15 seed, R64"
+219,UC Riverside
+220,Merrimack
+221,Wofford
+222,Cal Baptist
+223,Rider
+224,San Jose St.
+225,North Dakota
+Rk,Team
+226,Mount St. Mary's
+227,Tennessee Martin
+228,Cal St. Fullerton
+229,Air Force
+230,Georgia St.
+231,Bowling Green
+232,UTSA
+233,Iona
+234,Fresno St.
+235,"Stetson
+   16 seed, R64"
+236,Nicholls St.
+237,Milwaukee
+238,Cal St. Northridge
+239,North Florida
+240,Florida Gulf Coast
+241,Marshall
+242,UC Santa Barbara
+243,San Diego
+244,Lamar
+245,Portland St.
+246,Southern
+247,Albany
+248,Norfolk St.
+249,Miami OH
+250,Cal St. Bakersfield
+Rk,Team
+251,Maine
+252,Southern Utah
+253,Idaho St.
+254,Canisius
+255,UMBC
+256,Green Bay
+257,Queens
+258,Austin Peay
+259,Ball St.
+260,Southern Miss
+261,Middle Tennessee
+262,"Grambling St.
+   16 seed, R64"
+263,Western Illinois
+264,North Dakota St.
+265,North Carolina Central
+266,North Alabama
+267,Lehigh
+268,Georgia Southern
+269,Central Michigan
+270,Utah Tech
+271,Bucknell
+272,Portland
+273,Binghamton
+274,Texas Southern
+275,Nebraska Omaha
+Rk,Team
+276,"Howard
+   16 seed, R68"
+277,Central Connecticut
+278,The Citadel
+279,New Mexico St.
+280,New Hampshire
+281,Presbyterian
+282,Kennesaw St.
+283,Oral Roberts
+284,USC Upstate
+285,Denver
+286,"Wagner
+   16 seed, R64"
+287,DePaul
+288,Niagara
+289,Sacred Heart
+290,SIU Edwardsville
+291,FIU
+292,Alcorn St.
+293,Boston University
+294,Valparaiso
+295,Tennessee St.
+296,Louisiana Monroe
+297,Chicago St.
+298,Old Dominion
+299,South Carolina St.
+300,Delaware St.
+Rk,Team
+301,American
+302,Jacksonville
+303,Northern Illinois
+304,Bellarmine
+305,Campbell
+306,Jackson St.
+307,Le Moyne
+308,Bethune Cookman
+309,Elon
+310,Southeastern Louisiana
+311,Sacramento St.
+312,William & Mary
+313,Idaho
+314,Coastal Carolina
+315,South Dakota
+316,Robert Morris
+317,Western Michigan
+318,Northern Arizona
+319,Alabama St.
+320,Eastern Illinois
+321,Charleston Southern
+322,Northwestern St.
+323,Eastern Michigan
+324,Lafayette
+325,Alabama A&M
+Rk,Team
+326,Southern Indiana
+327,Navy
+328,NJIT
+329,Arkansas Pine Bluff
+330,Hampton
+331,Dartmouth
+332,UT Rio Grande Valley
+333,New Orleans
+334,Fairleigh Dickinson
+335,Morgan St.
+336,Manhattan
+337,Central Arkansas
+338,Texas A&M Commerce
+339,Florida A&M
+340,LIU Brooklyn
+341,Cal Poly
+342,Prairie View A&M
+343,North Carolina A&T
+344,Loyola MD
+345,Tennessee Tech
+346,Buffalo
+347,Detroit
+348,Incarnate Word
+349,Army
+350,Holy Cross
+351,Maryland Eastern Shore
+352,Pacific
+353,Southeast Missouri St.
+354,Lindenwood
+355,Houston Christian
+356,Siena
+357,Stonehill
+358,VMI
+359,IUPUI
+360,St. Francis PA
+361,Coppin St.
+362,Mississippi Valley St.
+Rk,Team

@@ -43,7 +43,8 @@ all_seeds <- purrr::map_dfr(seasons, get_seeds) %>%
     seed = as.numeric(gsub("\\D*(\\d{1,2}).*", "\\1", Team)),
     team = sub("\\s*\\d.*", "", Team),
     team = str_trim(team),
-    team_season = paste0(team, season)
+    team_season = paste(team, season),
+    team_season = str_squish(team_season)
   ) %>% 
   select(-c("Team", "Rk"))
 
@@ -51,12 +52,13 @@ all_seeds <- purrr::map_dfr(seasons, get_seeds) %>%
 # Metric Data -------------------------------------------------------------
 
 get_metric <- function(season) {
-  file_name <- paste0("March Madness At-Large Bids/Data/team_sheets_", season, ".csv")
+  file_name <- paste0("March Madness At-Large Bids/Data/team_sheets_", season, ".xlsx")
+  
   if (season == 2024) {
-    team_sheets <- read.csv(file_name) %>% 
+    team_sheets <- readxl::read_xlsx(file_name) %>% 
       mutate(season = 2024, Quality.Sag = NA)
   } else {
-    team_sheets <- read.csv(file_name) %>% 
+    team_sheets <- readxl::read_xlsx(file_name) %>% 
       mutate(season = season, Quality.Sag = NA)
   }
 }
@@ -65,19 +67,20 @@ all_team_sheets <- purrr::map_dfr(seasons, get_metric) %>%
   filter(Rk != "Rk") %>% 
   rename(
     net = NET,
-    sor = Resumé.SOR,
-    kp = Quality.KP,
+    sor = SOR,
+    kp = KPI,
     team = Team,
-    q1 = Current.Quadrant.Records.Q1,
-    q2 = Current.Quadrant.Records.Q2,
-    q3 = Current.Quadrant.Records.Q3,
-    q4 = Current.Quadrant.Records.Q4
+    q1 = Q1,
+    q2 = Q2,
+    q3 = Q3,
+    q4 = Q4
   ) %>% 
   mutate(
     team = gsub("F4O", "", team),
     team = gsub("N4O", "", team),
     team = sub("\\d+\\s*", "", team),
-    team_season = paste0(team, season)
+    team_season = paste0(team, season),
+    team_season = str_squish(team_season)
   ) %>% 
   select(team, season, team_season, net, sor, kp, q1, q2, q3, q4)
 
@@ -96,53 +99,55 @@ all_team_sheets <- all_team_sheets %>%
   separate(q4, into = c("q4_wins", "q4_losses"), sep = "-", convert = TRUE) %>% 
   mutate(
     across(c(
-    q1_wins, q1_losses, q2_wins, q2_losses, 
-    q3_wins, q3_losses, q4_wins, q4_losses, 
-    net, sor, kp, seed), as.numeric
-  ),
+      q1_wins, q1_losses, q2_wins, q2_losses, 
+      q3_wins, q3_losses, q4_wins, q4_losses, 
+      net, sor, kp, seed), as.numeric
+    ),
     q3q4_losses = q3_losses + q4_losses
   )
 
 
 # Fix Names ---------------------------------------------------------------
 
-team_name_map <- c(
-  "St. Mary's" = "Saint Mary's",
-  "Northern Ky." = "Northern Kentucky",
-  "Charleston" = "College of Charleston",
-  "App. St." = "Appalachian St.",
-  "Abilene Christ." = "Abilene Christian",
-  "UC-Santa Barbara" = "UC Santa Barbara",
-  "Cal St Fullerton" = "Cal St. Fullerton",
-  "Fla. Atlantic" = "Florida Atlantic",
-  "SE Missouri St" = "Southeast Missouri St.",
-  "Tx AM-CC" = "Texas A&M Corpus Chris",
-  "Louis." = "Louisiana Lafayette",
-  "Va Tech" = "Virginia Tech",
-  "St. Peter's" = "Saint Peter's",
-  "Loyola \\(IL\\)" = "Loyola Chicago",
-  "S Dakota St." = "South Dakota St.",
-  "Ga Tech" = "Georgia Tech",
-  "Eastern Wash." = "Eastern Washington",
-  "Mt. Saint Mary's" = "Mount St. Mary's",
-  "St. Louis" = "Saint Louis",
-  "Gardner-Webb" = "Gardner Webb",
-  "UC-Irvine" = "UC Irvine",
-  "N.C. Central" = "North Carolina Central",
-  "FDU" = "Fairleigh Dickinson",
-  "Prairie View" = "Prairie View A&M",
-  "NC State" = "North Carolina St.",
-  "Western Ky." = "Western Kentucky",
-  "Long Beach State" = "Long Beach St.",
-  "Grambling" = "Grambling St.",
-  "St. Francis (PA)" = "Saint Francis",
-  "St. John's (NY)" = "St. John's",
-  "UC-San Diego" = "UC San Diego",
-  "UNC Wilm." = "UNC Wilmington"
-)
+all_conf_champs$team <- gsub("St. Mary's", "Saint Mary's", all_conf_champs$team)
+all_conf_champs$team <- gsub("Northern Ky.", "Northern Kentucky", all_conf_champs$team)
+all_conf_champs$team <- gsub("Charleston", "College of Charleston", all_conf_champs$team)
+all_conf_champs$team <- gsub("App. St.", "Appalachian St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("Abilene Christ.", "Abilene Christian", all_conf_champs$team)
+all_conf_champs$team <- gsub("UC-Santa Barbara", "UC Santa Barbara", all_conf_champs$team)
+all_conf_champs$team <- gsub("Cal St Fullerton", "Cal St. Fullerton", all_conf_champs$team)
+all_conf_champs$team <- gsub("Fla. Atlantic", "Florida Atlantic", all_conf_champs$team)
+all_conf_champs$team <- gsub("SE Missouri St", "Southeast Missouri St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("Tx AM-CC", "Texas A&M Corpus Chris", all_conf_champs$team)
+all_conf_champs$team <- gsub("Louis.", "Louisiana Lafayette", all_conf_champs$team)
+all_conf_champs$team <- gsub("Va Tech", "Virginia Tech", all_conf_champs$team)
+all_conf_champs$team <- gsub("St. Peter's", "Saint Peter's", all_conf_champs$team)
+all_conf_champs$team <- gsub("Loyola \\(IL\\)", "Loyola Chicago", all_conf_champs$team)
+all_conf_champs$team <- gsub("S Dakota St.", "South Dakota St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("Ga Tech", "Georgia Tech", all_conf_champs$team)
+all_conf_champs$team <- gsub("Eastern Wash.", "Eastern Washington", all_conf_champs$team)
+all_conf_champs$team <- gsub("Mt. Saint Mary's", "Mount St. Mary's", all_conf_champs$team)
+all_conf_champs$team <- gsub("St. Louis", "Saint Louis", all_conf_champs$team)
+all_conf_champs$team <- gsub("Gardner-Webb", "Gardner Webb", all_conf_champs$team)
+all_conf_champs$team <- gsub("UC-Irvine", "UC Irvine", all_conf_champs$team)
+all_conf_champs$team <- gsub("N.C. Central", "North Carolina Central", all_conf_champs$team)
+all_conf_champs$team <- gsub("FDU", "Fairleigh Dickinson", all_conf_champs$team)
+all_conf_champs$team <- gsub("Prairie View", "Prairie View A&M", all_conf_champs$team)
+all_conf_champs$team <- gsub("NC State", "North Carolina St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("Western Ky.", "Western Kentucky", all_conf_champs$team)
+all_conf_champs$team <- gsub("Long Beach State", "Long Beach St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("Grambling", "Grambling St.", all_conf_champs$team)
+all_conf_champs$team <- gsub("St. Francis \\(PA\\)", "Saint Francis", all_conf_champs$team)
+all_conf_champs$team <- gsub("St. John's \\(NY\\)", "St. John's", all_conf_champs$team)
+all_conf_champs$team <- gsub("UC-San Diego", "UC San Diego", all_conf_champs$team)
+all_conf_champs$team <- gsub("UNC Wilm.", "UNC Wilmington", all_conf_champs$team)
+all_conf_champs$team <- gsub("Omaha", "Nebraska Omaha", all_conf_champs$team)
 
-all_conf_champs <- all_conf_champs %>%
-  mutate(team = str_replace_all(team, team_name_map))
+
+#  "St. John's (NY)" = "St. John's",
+ # "UC-San Diego" = "UC San Diego",
+  #"UNC Wilm." = "UNC Wilmington"
+
 
 
 # Assign At-Large Teams ---------------------------------------------------
@@ -152,8 +157,8 @@ all_team_sheets <- all_team_sheets %>%
   mutate(
     tournament = !is.na(seed),
     at_large = tournament & 
-      !paste0(team, season) %in% 
-      paste0(all_conf_champs$team, all_conf_champs$season)
+      !str_squish(paste(team, season)) %in% 
+      str_squish(paste(all_conf_champs$team, all_conf_champs$season))
   ) %>% 
   arrange(team) %>% 
   ungroup()
@@ -166,7 +171,7 @@ all_team_sheets <- all_team_sheets %>%
   mutate(
     across("at_large", ~ if_else(
       (team == "Fairleigh Dickinson" & season == 2023) |
-      (team == "Jacksonville St." & season == 2022),
+        (team == "Jacksonville St." & season == 2022),
       FALSE,
       .
     ))
